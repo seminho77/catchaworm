@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch a Worm</title>
+    <link rel="stylesheet" href="WormGame.css">
+    <style>
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-top: 0;
+        }
+    </style>
+    <script src="WormGame.js" defer></script>
+</head>
+<body>
+<div id="startWindow">
+    <img src="resources/img/wormlogo.png" alt="Game Logo" class="gameLogo"> <!-- Logo for the start screen -->
+    <button id="startGameButton">Start Game</button>
+    <button id="hintsButton">Hints</button>
+</div>
+
+<img src="resources/img/wormlogo.png" id="myLogo" style="display:none;"> <!-- Logo for the game corner -->
+
+<div id="hintsModal" class="modal">
+    <h1><i>Catch-a-Worm</i></h1>
+    <p>
+        Welcome to Catch-a-Worm! In this exciting and fast-paced game, you play as a bird eager to catch worms. Your goal is to catch as many pink worms as possible while avoiding the poisonous black worms. Get ready for a thrilling experience as you test your reflexes and speed!
+    </p>
+
+    <h2>Objective</h2>
+    <p>
+        Catch pink worms to increase your score by ten points each. Watch out for the rare colored worms which pop up randomly for triple points. Avoid the black worms, they are poisonous and will end the game.
+    </p>
+
+    <h2>Gameplay</h2>
+    <p>
+        Click on the pink worms that pop up from the holes in the ground. Be quick! The game speeds up over time, making the worms harder to catch. If you don't catch a pink worm within a 5-second period, the game will end.
+    </p>
+
+    <h2>Eagle or just a Dove?</h2>
+    <p>
+        The real challenge is the increasing speed of the game. Can you keep up with the pace and set a new high score? Play now and find out!
+    </p>
+
+    <button id="closeHints">Close Hints</button>
+</div>
+
+<div id="gameArea" style="display:none;">
+    <div><span id="scoreText">Score:</span> <span id="score">0</span></div>
+    <div id="gameBoard"></div>
+</div>
+
+<div id="gameOverModal" class="modal">
+    <div class="modal-content">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="finalScore"></span></p>
+        <input type="text" id="playerName" placeholder="Enter your name">
+        <button onclick="saveScore()">Submit</button>
+    </div>
+</div>
+
+<div id="highScoreBoard" style="display:none;">
+    <h2>High Scores</h2>
+    <ul id="highScoreList"></ul>
+    <button id="newGameButton">New Game</button>
+</div>
+
+
+<audio id="normalWormSound" src="resources/sound/eat.wav" preload="auto"></audio>
+<audio id="specialWormSound" src="resources/sound/bonus-point.wav" preload="auto"></audio>
+<audio id="gameOverSound" src="resources/sound/game-over.wav" preload="auto"></audio>
+</body>
+</html>
